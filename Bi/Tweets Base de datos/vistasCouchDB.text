@@ -1,0 +1,6 @@
+Para filtrar acorde a las ciudades que participaron en la consulta se uso el siguiente codigo
+function (doc) {
+  if(doc.place.name == "Cuenca" || doc.place.name == "Guayaquil" || doc.place.name == "Quito" && doc.lang == "es"){
+    emit(null, {text: doc.text.replace(/[í]/gi, 'i').replace(/[^\w\s#.!]/gi, '')});
+  }
+}
